@@ -1,5 +1,7 @@
 package production.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -7,19 +9,23 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="Position")
 @XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 @Table(name = "profiles") //maps to the profiles database table
-public class Profile {
+public class Profile implements Serializable  {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@NotNull
 	@Column(name = "user_identifier")
-	@XmlElement
 	private String userIdentifier;
 	
 	@Column(name = "adults")
