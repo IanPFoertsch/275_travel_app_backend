@@ -8,7 +8,9 @@
  */
 
 // Apply the java plugin to add support for Java
-apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse'
+apply plugin: 'eclipse-wtp'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -32,11 +34,13 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-task deploy (dependsOn: jar){
+
+task deploy (dependsOn: war) {
 	copy {
-		from"build/libs"
-		into "C:/Servers/wildfly-8.2.1.Final/standalone"
-		include "*.jar"
+		from "build/libs"
+		into "C:/Servers/wildfly-8.2.1.Final/standalone/deployments"
+		include "*.war"
 	}
+
 		
 }

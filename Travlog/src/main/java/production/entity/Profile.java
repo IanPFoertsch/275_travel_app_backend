@@ -26,6 +26,7 @@ public class Profile implements Serializable  {
 	@Id
 	@NotNull
 	@Column(name = "user_identifier")
+
 	private String userIdentifier;
 	
 	@Column(name = "adults")

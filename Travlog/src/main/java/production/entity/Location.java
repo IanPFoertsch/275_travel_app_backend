@@ -24,12 +24,17 @@ public class Location {
 	
 	@Column(name = "record_date")
 	private double recordDate;
+	
+	
 	@Column(name = "location_x")
 	private double locationX;
+	
 	@Column(name = "location_y")
 	private double locationY;
+	
 	@Column(name = "mode")
 	private String mode;
+	
 	@Column(name = "purpose")
 	private String purpose;
 	/**
