@@ -12,7 +12,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import production.dao.AbstractDao;
+
 import production.dao.LocationDao;
 import production.entity.Location;
 import production.entity.LocationCollection;
@@ -39,10 +39,10 @@ public class LocationService{
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public LocationCollection getLocationsForUser(@QueryParam("userIdentifier") String userIdentifier){ 
+		System.out.println("Request Received for userId: " + userIdentifier);
 		
 		return this.locationDao.getAllLocationsForIdentifier(userIdentifier);
 		
-		
-		
+	
 	}
 }

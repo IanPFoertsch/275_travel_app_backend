@@ -7,6 +7,7 @@
         <jta-data-source>java:jboss/datasources/travlog</jta-data-source>
         <class>production.entity.Profile</class>
         <class>production.entity.Location</class>
+        <class>production.entity.LocationKey</class>
         <properties>
         </properties>
     </persistence-unit>

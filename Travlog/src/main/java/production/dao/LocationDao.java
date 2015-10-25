@@ -29,13 +29,14 @@ public class LocationDao extends AbstractDao<Location>{
 		super(Location.class);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public LocationCollection getAllLocationsForIdentifier(String userIdentifier) {
 		
 		String queryString = "Select * from locations where user_identifier = '"
 				+ userIdentifier + "'";
 		Query query = this.entityManager.createNativeQuery(queryString, Location.class);
 
-		@SuppressWarnings("unchecked")
+		
 		List<Location> locationList =(List<Location>) query.getResultList();
 		
 		return this.loadLocationListToCollection(locationList);
