@@ -1,5 +1,7 @@
 package production.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -7,36 +9,49 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="Location")
 @XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 @Table(name = "locations") //maps to the locations database table
-public class Location {
+public class Location implements Serializable {
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@XmlElement
 	@Id
 	@NotNull
 	@Column(name = "user_identifier")
 	private String userIdentifier;
 	
+	
+	@XmlElement
 	@Column(name = "record_date")
 	private double recordDate;
 	
-	
+	@XmlElement
 	@Column(name = "location_x")
 	private double locationX;
 	
+	@XmlElement
 	@Column(name = "location_y")
 	private double locationY;
 	
+	@XmlElement
 	@Column(name = "mode")
 	private String mode;
 	
+	@XmlElement
 	@Column(name = "purpose")
 	private String purpose;
+	
+	
 	/**
 	 * @return the userIdentifier
 	 */
